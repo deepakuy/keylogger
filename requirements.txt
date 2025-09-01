@@ -1,0 +1,29 @@
+# Educational Keylogger Project Dependencies
+# =========================================
+# 
+# WARNING: This project is for EDUCATIONAL PURPOSES ONLY.
+# DO NOT use these tools for malicious purposes.
+# 
+# Install with: pip install -r requirements.txt
+
+# Core keylogging functionality
+pynput>=1.7.6
+
+# System information and process monitoring
+psutil>=5.9.0
+
+# Encryption for log files
+cryptography>=41.0.0
+
+# Testing framework
+pytest>=7.4.0
+pytest-cov>=4.1.0
+
+# Colored terminal output
+colorama>=0.4.6
+
+# Additional development dependencies (optional)
+# For better development experience
+black>=23.0.0
+flake8>=6.0.0
+mypy>=1.5.0
