@@ -51,11 +51,13 @@ Project/
 │   ├── __init__.py               # Package initialization
 │   ├── keylogger.py              # Basic keylogger implementation
 │   ├── enhanced_keylogger.py     # Advanced keylogger with threading
+│   ├── keylogger_detector.py     # Keylogger detection module
 │   └── utils.py                  # Utility functions
 ├── tests/                         # Unit tests
 │   ├── __init__.py               # Test package initialization
 │   ├── test_keylogger.py         # Basic keylogger tests
 │   ├── test_enhanced_keylogger.py # Enhanced keylogger tests
+│   ├── test_keylogger_detector.py # Detector module tests
 │   └── test_utils.py             # Utility function tests
 ├── logs/                          # Output log files (created at runtime)
 ├── requirements.txt               # Python dependencies
@@ -63,7 +65,8 @@ Project/
 ├── .gitignore                    # Git ignore patterns
 ├── LICENSE                       # MIT License
 ├── demo.py                       # Basic demonstration script
-└── enhanced_demo.py              # Advanced features demonstration
+├── enhanced_demo.py              # Advanced features demonstration
+└── detector_demo.py              # Keylogger detection demonstration
 ```
 
 ## 🚀 Installation and Setup
@@ -102,6 +105,11 @@ Project/
 2. **Run the enhanced features demonstration**:
    ```bash
    python enhanced_demo.py
+   ```
+
+3. **Run the keylogger detection demonstration**:
+   ```bash
+   python detector_demo.py
    ```
 
 2. **Follow the ethical consent prompts**:
@@ -194,6 +202,11 @@ pytest tests/
 pytest tests/test_enhanced_keylogger.py -v
 ```
 
+### Run Keylogger Detector Tests
+```bash
+pytest tests/test_keylogger_detector.py -v
+```
+
 ### Run Specific Test Files
 ```bash
 pytest tests/test_keylogger.py
@@ -224,6 +237,14 @@ pytest tests/ -v
 - **Comprehensive Logging**: Detailed operation logging and error tracking
 - **Queue-based Processing**: Reliable key event processing
 - **Graceful Shutdown**: Clean thread termination and cleanup
+
+### Keylogger Detection Features
+- **Process Scanning**: Identifies suspicious running processes and patterns
+- **Filesystem Monitoring**: Detects keylogger signatures and suspicious files
+- **Behavioral Analysis**: Analyzes system behavior for unusual activity
+- **Network Monitoring**: Monitors network connections for suspicious activity
+- **Report Generation**: Comprehensive detection reports with risk assessment
+- **False Positive Handling**: Educational insights about detection limitations
 
 ### Path Validation
 - Prevents access to system-critical directories
@@ -312,6 +333,9 @@ If you encounter issues:
 - **Cryptography**: Encryption algorithms and key management
 - **System Security**: How to protect against unauthorized monitoring
 - **Privacy Laws**: Understanding legal requirements around data collection
+- **Threat Detection**: How security software identifies malicious activity
+- **Behavioral Analysis**: Understanding system behavior patterns
+- **Network Security**: Monitoring and analyzing network connections
 
 ### Recommended Reading
 - "Operating System Concepts" by Silberschatz et al.
