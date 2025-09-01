@@ -47,19 +47,23 @@ This project includes multiple layers of protection:
 
 ```
 Project/
-├── src/                    # Main source code
-│   ├── __init__.py        # Package initialization
-│   ├── keylogger.py       # Main keylogger implementation
-│   └── utils.py           # Utility functions
-├── tests/                  # Unit tests
-│   ├── __init__.py        # Test package initialization
-│   ├── test_keylogger.py  # Keylogger tests
-│   └── test_utils.py      # Utility function tests
-├── logs/                   # Output log files (created at runtime)
-├── requirements.txt        # Python dependencies
-├── README.md              # This file
-├── .gitignore             # Git ignore patterns
-└── LICENSE                # MIT License
+├── src/                           # Main source code
+│   ├── __init__.py               # Package initialization
+│   ├── keylogger.py              # Basic keylogger implementation
+│   ├── enhanced_keylogger.py     # Advanced keylogger with threading
+│   └── utils.py                  # Utility functions
+├── tests/                         # Unit tests
+│   ├── __init__.py               # Test package initialization
+│   ├── test_keylogger.py         # Basic keylogger tests
+│   ├── test_enhanced_keylogger.py # Enhanced keylogger tests
+│   └── test_utils.py             # Utility function tests
+├── logs/                          # Output log files (created at runtime)
+├── requirements.txt               # Python dependencies
+├── README.md                     # This file
+├── .gitignore                    # Git ignore patterns
+├── LICENSE                       # MIT License
+├── demo.py                       # Basic demonstration script
+└── enhanced_demo.py              # Advanced features demonstration
 ```
 
 ## 🚀 Installation and Setup
@@ -90,9 +94,14 @@ Project/
 
 ### Basic Usage
 
-1. **Run the educational demonstration**:
+1. **Run the basic educational demonstration**:
    ```bash
    python src/keylogger.py
+   ```
+
+2. **Run the enhanced features demonstration**:
+   ```bash
+   python enhanced_demo.py
    ```
 
 2. **Follow the ethical consent prompts**:
@@ -106,6 +115,7 @@ Project/
 
 ### Advanced Usage
 
+#### Basic Keylogger
 ```python
 from src.keylogger import EducationalKeylogger
 
@@ -124,6 +134,31 @@ print(f"Keys logged: {stats['key_count']}")
 
 # Stop monitoring
 keylogger.stop()
+```
+
+#### Enhanced Keylogger with Advanced Features
+```python
+from src.enhanced_keylogger import EnhancedEducationalKeylogger
+
+# Create enhanced keylogger instance
+enhanced_keylogger = EnhancedEducationalKeylogger(
+    log_dir="enhanced_logs",
+    max_file_size_mb=10,    # Rotate files at 10MB
+    max_files=5,             # Keep 5 log files
+    encrypt_logs=True
+)
+
+# Start monitoring (non-blocking with threading)
+enhanced_keylogger.start()
+
+# Get comprehensive statistics
+stats = enhanced_keylogger.get_statistics()
+print(f"Keys logged: {stats['key_count']}")
+print(f"Files rotated: {stats['files_rotated']}")
+print(f"Errors encountered: {stats['errors_encountered']}")
+
+# Stop monitoring
+enhanced_keylogger.stop()
 ```
 
 ### Using Utility Functions
@@ -154,6 +189,11 @@ clean_data = sanitize_log_data({"password": "secret123"})
 pytest tests/
 ```
 
+### Run Enhanced Keylogger Tests
+```bash
+pytest tests/test_enhanced_keylogger.py -v
+```
+
 ### Run Specific Test Files
 ```bash
 pytest tests/test_keylogger.py
@@ -176,6 +216,14 @@ pytest tests/ -v
 - Log files are encrypted using Fernet (symmetric encryption)
 - Encryption keys are stored securely in the logs directory
 - Each session generates a unique encryption key
+
+### Enhanced Features
+- **Multi-threaded Operation**: Non-blocking keyboard monitoring
+- **File Rotation**: Automatic log file management and rotation
+- **Advanced Consent**: Multi-level ethical consent verification
+- **Comprehensive Logging**: Detailed operation logging and error tracking
+- **Queue-based Processing**: Reliable key event processing
+- **Graceful Shutdown**: Clean thread termination and cleanup
 
 ### Path Validation
 - Prevents access to system-critical directories
